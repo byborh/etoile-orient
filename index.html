@@ -398,12 +398,25 @@
             border-color: rgba(212, 175, 55, 0.5);
         }
 
-        .category-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
+        .category-image {
+            width: 100%;
+            height: 250px;
+            margin: -2.5rem -2.5rem 1.5rem -2.5rem;
+            border-radius: 15px 15px 0 0;
+            overflow: hidden;
             position: relative;
             z-index: 2;
+        }
+
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover .category-image img {
+            transform: scale(1.05);
         }
 
         .category-card h3 {
@@ -608,32 +621,12 @@
             margin-bottom: 0.5rem;
         }
 
-        .map-placeholder {
+        .map-container {
             width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(139, 0, 0, 0.1) 100%);
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid var(--primary-gold);
-            position: relative;
-            overflow: hidden;
         }
 
-        .map-placeholder::before {
-            content: '📍';
-            font-size: 4rem;
-            position: absolute;
-        }
-
-        .map-text {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: var(--text-dark);
-            font-size: 1rem;
-            font-weight: 600;
+        .map-container iframe {
+            box-shadow: 0 5px 20px rgba(139, 0, 0, 0.15);
         }
 
         @media (max-width: 768px) {
@@ -860,22 +853,30 @@
             <h2 class="section-title">Nos Univers</h2>
             <div class="category-grid">
                 <div class="category-card">
-                    <div class="category-icon">🏮</div>
+                    <div class="category-image">
+                        <img src="./images/decoration-orientale.jpg" alt="Décoration Orientale" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23d4a574%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23fff%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EImage à ajouter%3C/text%3E%3C/svg%3E'">
+                    </div>
                     <h3>Décoration Orientale</h3>
                     <p>Lanternes dorées, tapis tissés, coussins luxueux et objets d'art pour transformer votre intérieur en oasis oriental.</p>
                 </div>
                 <div class="category-card">
-                    <div class="category-icon">🌶️</div>
+                    <div class="category-image">
+                        <img src="./images/epices-saveurs.jpg" alt="Épicerie & Saveurs" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%238B0000%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23fff%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EImage à ajouter%3C/text%3E%3C/svg%3E'">
+                    </div>
                     <h3>Épicerie & Saveurs</h3>
                     <p>Épices rares, thés exotiques, miel artisanal et délices culinaires pour voyager à travers les saveurs du monde.</p>
                 </div>
                 <div class="category-card">
-                    <div class="category-icon">🎁</div>
+                    <div class="category-image">
+                        <img src="./images/cadeaux-souvenirs.jpg" alt="Cadeaux & Souvenirs" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23D4AF37%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23000%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EImage à ajouter%3C/text%3E%3C/svg%3E'">
+                    </div>
                     <h3>Cadeaux & Souvenirs</h3>
                     <p>Trésors uniques et authentic souvenirs pour offrir un peu de magie orientale à vos proches.</p>
                 </div>
                 <div class="category-card">
-                    <div class="category-icon">✨</div>
+                    <div class="category-image">
+                        <img src="./images/objets-quotidien.jpg" alt="Objets du Quotidien" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23a67c52%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2224%22 fill=%22%23fff%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EImage à ajouter%3C/text%3E%3C/svg%3E'">
+                    </div>
                     <h3>Objets du Quotidien</h3>
                     <p>Textiles, accessoires, bougies parfumées et bien d'autres articles pour sublimer votre vie de tous les jours.</p>
                 </div>
@@ -989,8 +990,11 @@
                         Email: hello@etoile-orient.fr
                     </div>
                 </div>
-                <div class="map-placeholder">
-                    <div class="map-text">Bordeaux</div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2828.5474789845896!2d-0.5695918!3d44.8378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd5527e8e8e8e8e8d%3A0x0!2sL'%C3%89toile%20De%20L'Orient!5e0!3m2!1sfr!2sfr!4v1234567890" width="100%" height="400" style="border:none;border-radius:12px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <p style="margin-top: 1.5rem; text-align: center;">
+                        <a href="https://maps.app.goo.gl/etTzQEfe839a3JgSA" target="_blank" class="cta-header" style="display: inline-block;">Voir sur Google Maps →</a>
+                    </p>
                 </div>
             </div>
         </div>
@@ -1038,7 +1042,7 @@
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 L'Étoile De L'Orient. Tous droits réservés.</p>
-            <p>Créé avec ✨ et passion pour Bordeaux</p>
+            <p>Créé avec amour et passion pour apporter la magie de l'Orient à Bordeaux</p>
         </div>
     </footer>
 

@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Étoile De L'Orient - Bordeaux</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Poppins:wght@300;400;500;600&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-gold: #D4AF37;
+            --accent-gold: #E8C547;
+            --deep-red: #8B0000;
+            --sand-beige: #F5DEB3;
+            --dark-bg: #1a1a1a;
+            --darker-bg: #0f0f0f;
+            --text-dark: #2a2a2a;
+            --text-light: #f5f1e8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background-color: #faf8f3;
+        }
+
+        /* ==================== HEADER & NAVIGATION ==================== */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(26, 26, 26, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-gold);
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--primary-gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-links a:hover:after {
+            width: 100%;
+        }
+
+        .cta-header {
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-gold));
+            color: var(--dark-bg);
+            padding: 0.7rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .cta-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            margin-top: 70px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.7) 0%, rgba(139, 0, 0, 0.5) 50%, rgba(212, 175, 55, 0.3) 100%);
+            z-index: 2;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #d4a574 0%, #a67c52 50%, #6b4423 100%);
+            z-index: 1;
+        }
+
+        /* Oriental pattern overlay */
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 0, 0, 0.1) 0%, transparent 50%);
+            z-index: 1;
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--text-light);
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 900;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+            letter-spacing: 3px;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            font-weight: 400;
+            margin-bottom: 3rem;
+            color: var(--sand-beige);
+            letter-spacing: 1px;
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-cta {
+            padding: 1.2rem 3rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-gold));
+            color: var(--dark-bg);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+            animation: slideUp 0.8s ease-out 0.6s both;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.5);
+        }
+
+        .hero-cta:active {
+            transform: translateY(-2px);
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            stroke: var(--primary-gold);
+            stroke-width: 2;
+            fill: none;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* ==================== ABOUT SECTION ==================== */
+        .about {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #faf8f3 0%, #f5f1e8 100%);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .about-text {
+            max-width: 800px;
+            margin: 3rem auto;
+            text-align: center;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: var(--deep-red);
+            font-weight: 600;
+        }
+
+        /* ==================== CATEGORIES SECTION ==================== */
+        .categories {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #fff9f5 0%, #faf8f3 100%);
+            position: relative;
+        }
+
+        .categories::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(180deg, rgba(212, 175, 55, 0.1) 0%, transparent 100%);
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .category-card {
+            background: linear-gradient(135deg, #ffffff 0%, #fef9f3 100%);
+            border-radius: 15px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 5px 20px rgba(139, 0, 0, 0.08);
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0) 0%, rgba(139, 0, 0, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 0;
+        }
+
+        .category-card:hover::before {
+            opacity: 1;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.25);
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+
+        .category-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            position: relative;
+            z-index: 2;
+        }
+
+        .category-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            position: relative;
+            z-index: 2;
+        }
+
+        .category-card p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ==================== EXPERIENCE SECTION ==================== */
+        .experience {
+            padding: 7rem 2rem;
+            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 50%, var(--deep-red) 100%);
+            color: var(--text-light);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+            z-index: 0;
+        }
+
+        .experience-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .experience-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 2.5rem;
+            color: var(--accent-gold);
+        }
+
+        .experience-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            margin-bottom: 2rem;
+            color: var(--sand-beige);
+        }
+
+        .experience-text p {
+            margin-bottom: 2rem;
+        }
+
+        .experience-highlights {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3.5rem;
+        }
+
+        .highlight-item {
+            padding: 2rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-item:hover {
+            background: rgba(212, 175, 55, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .highlight-item h4 {
+            color: var(--accent-gold);
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .highlight-item p {
+            color: var(--sand-beige);
+            font-size: 0.95rem;
+        }
+
+        /* ==================== GALLERY SECTION ==================== */
+        .gallery {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #faf8f3 0%, #f5f1e8 100%);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            aspect-ratio: 1;
+            cursor: pointer;
+            group: gallery;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1) rotate(1deg);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.8) 0%, rgba(139, 0, 0, 0.8) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay-text {
+            color: white;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* ==================== LOCATION SECTION ==================== */
+        .location {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #fff9f5 0%, #faf8f3 100%);
+            position: relative;
+        }
+
+        .location-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .location-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .location-info p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .info-block {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary-gold);
+            box-shadow: 0 3px 15px rgba(139, 0, 0, 0.1);
+        }
+
+        .info-block strong {
+            color: var(--deep-red);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2) 0%, rgba(139, 0, 0, 0.1) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--primary-gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .map-placeholder::before {
+            content: '📍';
+            font-size: 4rem;
+            position: absolute;
+        }
+
+        .map-text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: var(--text-dark);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .location-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            background: var(--dark-bg);
+            color: var(--text-light);
+            padding: 4rem 2rem 2rem;
+            border-top: 2px solid var(--primary-gold);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), transparent);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            color: var(--primary-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section a {
+            color: var(--sand-beige);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--primary-gold);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(212, 175, 55, 0.2);
+            border-radius: 50%;
+            color: var(--primary-gold);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .social-icon:hover {
+            background: var(--primary-gold);
+            color: var(--dark-bg);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: var(--sand-beige);
+            font-size: 0.9rem;
+        }
+
+        .footer-bottom p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            .section-title {
+                margin-bottom: 1rem;
+            }
+
+            .category-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .experience-highlights {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            header {
+                padding: 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* ==================== UTILITY CLASSES ==================== */
+        .accent {
+            color: var(--primary-gold);
+        }
+
+        .glow {
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+            }
+        }
+
+        .glowing {
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        /* Smooth scroll transitions for sections */
+        section {
+            scroll-margin-top: 70px;
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== HEADER ==================== -->
+    <header>
+        <nav>
+            <a href="#hero" class="logo">✦ L'Étoile De L'Orient</a>
+            <ul class="nav-links">
+                <li><a href="#about">À Propos</a></li>
+                <li><a href="#categories">Catégories</a></li>
+                <li><a href="#experience">Expérience</a></li>
+                <li><a href="#gallery">Galerie</a></li>
+                <li><a href="#location">Contact</a></li>
+            </ul>
+            <a href="#location" class="cta-header">Nous Visiter</a>
+        </nav>
+    </header>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">L'Étoile De L'Orient</h1>
+            <p class="hero-subtitle">Un voyage au cœur des trésors orientaux</p>
+            <a href="#categories" class="hero-cta">Découvrir le Magasin</a>
+        </div>
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24">
+                <path d="M12 5v14M5 12l7 7 7-7"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- ==================== ABOUT SECTION ==================== -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Un Magasin Pas Comme Les Autres</h2>
+            <div class="about-text">
+                <p>
+                    Bienvenue dans notre <span class="highlight">bazaar oriental authentique</span>, 
+                    un espace où chaque coin recèle des trésors à découvrir.
+                </p>
+                <p>
+                    Depuis nos rayons colorés jusqu'aux senteurs envoûtantes de nos épices fines, 
+                    chaque détail a été choisi pour vous offrir une <span class="highlight">expérience immersive</span>.
+                </p>
+                <p>
+                    Que vous cherchiez une décoration exotique, des saveurs authentiques, des cadeaux uniques 
+                    ou simplement à vous laisser inspirer, <span class="highlight">L'Étoile De L'Orient</span> 
+                    est votre destination idéale à Bordeaux.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CATEGORIES SECTION ==================== -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title">Nos Univers</h2>
+            <div class="category-grid">
+                <div class="category-card">
+                    <div class="category-icon">🏮</div>
+                    <h3>Décoration Orientale</h3>
+                    <p>Lanternes dorées, tapis tissés, coussins luxueux et objets d'art pour transformer votre intérieur en oasis oriental.</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🌶️</div>
+                    <h3>Épicerie & Saveurs</h3>
+                    <p>Épices rares, thés exotiques, miel artisanal et délices culinaires pour voyager à travers les saveurs du monde.</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🎁</div>
+                    <h3>Cadeaux & Souvenirs</h3>
+                    <p>Trésors uniques et authentic souvenirs pour offrir un peu de magie orientale à vos proches.</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">✨</div>
+                    <h3>Objets du Quotidien</h3>
+                    <p>Textiles, accessoires, bougies parfumées et bien d'autres articles pour sublimer votre vie de tous les jours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== EXPERIENCE SECTION ==================== -->
+    <section class="experience" id="experience">
+        <div class="experience-content">
+            <h2 class="experience-title">Plus qu'un Magasin,<br>Une Expérience</h2>
+            <div class="experience-text">
+                <p>
+                    Inspiré par les grands souks de Marrakech et d'Istanbul, 
+                    notre magasin est une invitation au voyage.
+                </p>
+                <p>
+                    À chaque visite, vous franchissez une porte dorée pour entrer dans un monde 
+                    où les couleurs dansent, où les senteurs vous enivrent, où chaque objet raconte une histoire.
+                </p>
+            </div>
+            <div class="experience-highlights">
+                <div class="highlight-item">
+                    <h4>🌈 Couleurs</h4>
+                    <p>Un arc-en-ciel de teintes chaudes et riches qui fascinent les yeux</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>👃 Senteurs</h4>
+                    <p>Parfums d'épices, d'encens et de bougies qui envoûtent les sens</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>✋ Authenticité</h4>
+                    <p>Chaque produit sélectionné avec passion et authenticité</p>
+                </div>
+                <div class="highlight-item">
+                    <h4>🔍 Découverte</h4>
+                    <p>Des trouvailles inattendues à chaque coin du magasin</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== GALLERY SECTION ==================== -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Dans Notre Univers</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #d4a574 0%, #a67c52 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">🌶️</div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">Épices & Arômes</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #8B0000 0%, #6b2b2b 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">🏮</div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">Lanternes & Lumière</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #D4AF37 0%, #a67c52 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">🧿</div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">Talismans & Bijoux</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #F5DEB3 0%, #a67c52 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">🕌</div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">Décor Islamique</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #a67c52 0%, #6b4423 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">🎨</div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">Mosaïques Artisanales</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #8B0000 0%, #D4AF37 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 4rem;">🪴</div>
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">Textiles & Coussins</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== LOCATION SECTION ==================== -->
+    <section class="location" id="location">
+        <div class="container">
+            <h2 class="section-title">Nous Trouver</h2>
+            <div class="location-content">
+                <div class="location-info">
+                    <h3>L'Étoile De L'Orient</h3>
+                    <p>Visitez notre magasin pour une expérience inoubliable au cœur de Bordeaux.</p>
+                    
+                    <div class="info-block">
+                        <strong>📍 Adresse</strong>
+                        Bordeaux, France
+                    </div>
+                    
+                    <div class="info-block">
+                        <strong>⏰ Horaires</strong>
+                        Lundi - Samedi: 10h00 - 19h00<br>
+                        Dimanche: 14h00 - 18h00
+                    </div>
+                    
+                    <div class="info-block">
+                        <strong>📞 Contact</strong>
+                        Téléphone: Disponible sur demande<br>
+                        Email: hello@etoile-orient.fr
+                    </div>
+                </div>
+                <div class="map-placeholder">
+                    <div class="map-text">Bordeaux</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>✦ L'Étoile De L'Orient</h4>
+                <p style="margin-bottom: 1.5rem; color: #aaa;">Un bazaar oriental authentique à Bordeaux, riche d'une diversité de produits pour explorer et découvrir.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon" title="Facebook">f</a>
+                    <a href="#" class="social-icon" title="Instagram">📷</a>
+                    <a href="#" class="social-icon" title="Pinterest">P</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#about">À Propos</a></li>
+                    <li><a href="#categories">Nos Univers</a></li>
+                    <li><a href="#experience">Expérience</a></li>
+                    <li><a href="#gallery">Galerie</a></li>
+                    <li><a href="#location">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Horaires</h4>
+                <ul>
+                    <li>Lundi - Samedi</li>
+                    <li>10h00 - 19h00</li>
+                    <li style="margin-top: 1rem;">Dimanche</li>
+                    <li>14h00 - 18h00</li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Suivez-Nous</h4>
+                <p style="color: #aaa; margin-bottom: 1rem;">Découvrez nos dernières collections et actualités</p>
+                <form style="display: flex; gap: 0.5rem;">
+                    <input type="email" placeholder="Votre email" style="padding: 0.8rem; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 5px; background: rgba(212, 175, 55, 0.1); color: white; flex: 1;">
+                    <button type="submit" style="padding: 0.8rem 1.5rem; background: var(--primary-gold); color: var(--dark-bg); border: none; border-radius: 5px; cursor: pointer; font-weight: 600;">✓</button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 L'Étoile De L'Orient. Tous droits réservés.</p>
+            <p>Créé avec ✨ et passion pour Bordeaux</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add parallax effect to hero
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.hero-bg');
+            if (hero) {
+                hero.style.transform = `translateY(${window.scrollY * 0.5}px)`;
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeIn 0.6s ease-out forwards';
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.category-card, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

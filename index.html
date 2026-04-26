@@ -135,7 +135,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, rgba(26, 26, 26, 0.7) 0%, rgba(139, 0, 0, 0.5) 50%, rgba(212, 175, 55, 0.3) 100%);
+            background: linear-gradient(135deg, rgba(26, 26, 26, 0.78) 0%, rgba(139, 0, 0, 0.55) 50%, rgba(26, 26, 26, 0.7) 100%);
             z-index: 2;
         }
 
@@ -145,7 +145,9 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(135deg, #d4a574 0%, #a67c52 50%, #6b4423 100%);
+            background-image: url("img/Le%20devant%20du%20magasin%20avec%20les%20articles.jpg");
+            background-size: cover;
+            background-position: center;
             z-index: 1;
         }
 
@@ -399,7 +401,7 @@
         }
 
         .category-image {
-            width: 100%;
+            width: calc(100% + 5rem);
             height: 250px;
             margin: -2.5rem -2.5rem 1.5rem -2.5rem;
             border-radius: 15px 15px 0 0;
@@ -832,17 +834,19 @@
             <h2 class="section-title">Un Magasin Pas Comme Les Autres</h2>
             <div class="about-text">
                 <p>
-                    Bienvenue dans notre <span class="highlight">bazaar oriental authentique</span>, 
-                    un espace où chaque coin recèle des trésors à découvrir.
+                    Bienvenue chez <span class="highlight">L'Étoile De L'Orient</span>,
+                    un véritable bazar oriental où chaque rayon réserve sa surprise.
                 </p>
                 <p>
-                    Depuis nos rayons colorés jusqu'aux senteurs envoûtantes de nos épices fines, 
-                    chaque détail a été choisi pour vous offrir une <span class="highlight">expérience immersive</span>.
+                    Des <span class="highlight">épices et produits de cuisine</span> aux articles ménagers,
+                    en passant par les <span class="highlight">ouvrages islamiques</span>,
+                    les ustensiles, la quincaillerie et mille petits trésors du quotidien :
+                    on entre pour une chose, on en ressort avec dix.
                 </p>
                 <p>
-                    Que vous cherchiez une décoration exotique, des saveurs authentiques, des cadeaux uniques 
-                    ou simplement à vous laisser inspirer, <span class="highlight">L'Étoile De L'Orient</span> 
-                    est votre destination idéale à Bordeaux.
+                    Que vous veniez pour faire vos courses, dénicher un cadeau ou simplement flâner,
+                    <span class="highlight">L'Étoile De L'Orient</span> vous accueille à Bordeaux
+                    avec la chaleur et la générosité d'un vrai souk.
                 </p>
             </div>
         </div>
@@ -855,31 +859,31 @@
             <div class="category-grid">
                 <div class="category-card">
                     <div class="category-image">
-                        <img src="https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=600&h=400&fit=crop" alt="Décoration Orientale">
+                        <img src="img/Rayons%20cuisine%20et%20%C3%A9pices.jpg" alt="Cuisine & Épices">
                     </div>
-                    <h3>Décoration Orientale</h3>
-                    <p>Lanternes dorées, tapis tissés, coussins luxueux et objets d'art pour transformer votre intérieur en oasis oriental.</p>
+                    <h3>Cuisine & Épices</h3>
+                    <p>Des rayons garnis d'épices, d'ingrédients orientaux et de tout ce qu'il faut pour cuisiner les saveurs d'ailleurs.</p>
                 </div>
                 <div class="category-card">
                     <div class="category-image">
-                        <img src="https://images.unsplash.com/photo-1596040906122-a2f86ece1af8?w=600&h=400&fit=crop" alt="Épicerie & Saveurs">
+                        <img src="img/%C3%89talage%20d%27articles%20m%C3%A9nagers%20h%C3%A9t%C3%A9roclites.jpg" alt="Articles Ménagers">
                     </div>
-                    <h3>Épicerie & Saveurs</h3>
-                    <p>Épices rares, thés exotiques, miel artisanal et délices culinaires pour voyager à travers les saveurs du monde.</p>
+                    <h3>Articles Ménagers</h3>
+                    <p>Vaisselle, ustensiles, ventilateurs et tout l'équipement du quotidien pour la maison à des prix accessibles.</p>
                 </div>
                 <div class="category-card">
                     <div class="category-image">
-                        <img src="https://images.unsplash.com/photo-1599599810694-b3f0c8dfa9f0?w=600&h=400&fit=crop" alt="Cadeaux & Souvenirs">
+                        <img src="img/Biblioth%C3%A8que%20d%27ouvrages%20islamiques.jpg" alt="Livres & Culture Islamique">
                     </div>
-                    <h3>Cadeaux & Souvenirs</h3>
-                    <p>Trésors uniques et authentic souvenirs pour offrir un peu de magie orientale à vos proches.</p>
+                    <h3>Livres & Culture Islamique</h3>
+                    <p>Une sélection d'ouvrages islamiques, Corans, livres de prière et objets cultuels pour nourrir l'esprit.</p>
                 </div>
                 <div class="category-card">
                     <div class="category-image">
-                        <img src="https://images.unsplash.com/photo-1552062407-291846464c9f?w=600&h=400&fit=crop" alt="Objets du Quotidien">
+                        <img src="img/Casier%20d%27accessoires%20et%20quincaillerie.jpg" alt="Quincaillerie & Accessoires">
                     </div>
-                    <h3>Objets du Quotidien</h3>
-                    <p>Textiles, accessoires, bougies parfumées et bien d'autres articles pour sublimer votre vie de tous les jours.</p>
+                    <h3>Quincaillerie & Accessoires</h3>
+                    <p>Petits outils, accessoires pratiques et trouvailles utiles : tout ce qu'on cherche sans toujours savoir où.</p>
                 </div>
             </div>
         </div>
@@ -926,39 +930,51 @@
             <h2 class="section-title">Dans Notre Univers</h2>
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1596040906122-a2f86ece1af8?w=500&h=500&fit=crop" alt="Épices & Arômes" style="width:100%;height:100%;object-fit:cover;">
+                    <img src="img/Rayons%20cuisine%20et%20%C3%A9pices%202.jpg" alt="Rayons cuisine & épices" style="width:100%;height:100%;object-fit:cover;">
                     <div class="gallery-overlay">
-                        <div class="gallery-overlay-text">Épices & Arômes</div>
+                        <div class="gallery-overlay-text">Rayons Cuisine & Épices</div>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1578500494198-246f612d03b3?w=500&h=500&fit=crop" alt="Lanternes & Lumière" style="width:100%;height:100%;object-fit:cover;">
+                    <img src="img/Bazar%20d%27articles%20vari%C3%A9s%202.jpg" alt="Bazar d'articles variés" style="width:100%;height:100%;object-fit:cover;">
                     <div class="gallery-overlay">
-                        <div class="gallery-overlay-text">Lanternes & Lumière</div>
+                        <div class="gallery-overlay-text">Articles Variés</div>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1589817471516-5af6e5eb73d0?w=500&h=500&fit=crop" alt="Talismans & Bijoux" style="width:100%;height:100%;object-fit:cover;">
+                    <img src="img/All%C3%A9e%20d%27ustensiles%20et%20ventilateurs.jpg" alt="Allée d'ustensiles et ventilateurs" style="width:100%;height:100%;object-fit:cover;">
                     <div class="gallery-overlay">
-                        <div class="gallery-overlay-text">Talismans & Bijoux</div>
+                        <div class="gallery-overlay-text">Ustensiles & Ventilateurs</div>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?w=500&h=500&fit=crop" alt="Décor Islamique" style="width:100%;height:100%;object-fit:cover;">
+                    <img src="img/Int%C3%A9rieur%20boutique%20de%20bazar.jpg" alt="Intérieur de la boutique" style="width:100%;height:100%;object-fit:cover;">
                     <div class="gallery-overlay">
-                        <div class="gallery-overlay-text">Décor Islamique</div>
+                        <div class="gallery-overlay-text">Intérieur du Magasin</div>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1578926078328-123456789012?w=500&h=500&fit=crop" alt="Mosaïques Artisanales" style="width:100%;height:100%;object-fit:cover;">
+                    <img src="img/Commer%C3%A7ant%20rangeant%20ses%20rayons.jpg" alt="Commerçant rangeant ses rayons" style="width:100%;height:100%;object-fit:cover;">
                     <div class="gallery-overlay">
-                        <div class="gallery-overlay-text">Mosaïques Artisanales</div>
+                        <div class="gallery-overlay-text">L'Accueil Du Commerçant</div>
                     </div>
                 </div>
                 <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1552062407-291846464c9f?w=500&h=500&fit=crop" alt="Textiles & Coussins" style="width:100%;height:100%;object-fit:cover;">
+                    <img src="img/Rayons%20cuisine%20et%20%C3%A9pices%203.jpg" alt="Rayons cuisine & épices" style="width:100%;height:100%;object-fit:cover;">
                     <div class="gallery-overlay">
-                        <div class="gallery-overlay-text">Textiles & Coussins</div>
+                        <div class="gallery-overlay-text">Saveurs D'Orient</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/Bazar%20d%27articles%20vari%C3%A9s%203.jpg" alt="Bazar d'articles variés" style="width:100%;height:100%;object-fit:cover;">
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">Trouvailles Du Bazar</div>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="img/Le%20devant%20du%20magasin%20avec%20les%20articles.jpg" alt="Devant du magasin" style="width:100%;height:100%;object-fit:cover;">
+                    <div class="gallery-overlay">
+                        <div class="gallery-overlay-text">Le Devant Du Magasin</div>
                     </div>
                 </div>
             </div>
@@ -987,8 +1003,7 @@
                     
                     <div class="info-block">
                         <strong>📞 Contact</strong>
-                        Téléphone: Disponible sur demande<br>
-                        Email: hello@etoile-orient.fr
+                        Téléphone: <a href="tel:+33610376409" style="color: var(--deep-red); font-weight: 600; text-decoration: none;">06 10 37 64 09</a>
                     </div>
                 </div>
                 <div class="map-container">
@@ -1007,11 +1022,6 @@
             <div class="footer-section">
                 <h4>✦ L'Étoile De L'Orient</h4>
                 <p style="margin-bottom: 1.5rem; color: #aaa;">Un bazaar oriental authentique à Bordeaux, riche d'une diversité de produits pour explorer et découvrir.</p>
-                <div class="social-links">
-                    <a href="#" class="social-icon" title="Facebook">f</a>
-                    <a href="#" class="social-icon" title="Instagram">📷</a>
-                    <a href="#" class="social-icon" title="Pinterest">P</a>
-                </div>
             </div>
             <div class="footer-section">
                 <h4>Navigation</h4>
@@ -1033,21 +1043,20 @@
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Suivez-Nous</h4>
-                <p style="color: #aaa; margin-bottom: 1rem;">Découvrez nos dernières collections et actualités</p>
-                <form style="display: flex; gap: 0.5rem;">
-                    <input type="email" placeholder="Votre email" style="padding: 0.8rem; border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 5px; background: rgba(212, 175, 55, 0.1); color: white; flex: 1;">
-                    <button type="submit" style="padding: 0.8rem 1.5rem; background: var(--primary-gold); color: var(--dark-bg); border: none; border-radius: 5px; cursor: pointer; font-weight: 600;">✓</button>
-                </form>
+                <h4>Nous Contacter</h4>
+                <p style="color: #aaa; margin-bottom: 1rem;">Une question ? Appelez-nous directement.</p>
+                <a href="tel:+33610376409" style="display: inline-flex; align-items: center; gap: 0.6rem; padding: 0.8rem 1.2rem; background: rgba(212, 175, 55, 0.1); border: 1px solid rgba(212, 175, 55, 0.3); border-radius: 8px; color: var(--primary-gold); text-decoration: none; font-weight: 600; transition: all 0.3s ease;">📞 <span>06 10 37 64 09</span></a>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 L'Étoile De L'Orient. Tous droits réservés.</p>
+            <p>&copy; <span id="current-year"></span> L'Étoile De L'Orient. Tous droits réservés.</p>
             <p>Créé avec amour et passion pour apporter la magie de l'Orient à Bordeaux</p>
         </div>
     </footer>
 
     <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {

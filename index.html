@@ -795,6 +795,304 @@
         section {
             scroll-margin-top: 70px;
         }
+
+        /* ==================== ARTICLES SECTION ==================== */
+        .articles {
+            padding: 6rem 2rem;
+            background: linear-gradient(135deg, #faf8f3 0%, #f5f1e8 100%);
+            position: relative;
+        }
+
+        .articles-intro {
+            text-align: center;
+            max-width: 700px;
+            margin: 1.5rem auto 0;
+            color: #666;
+            line-height: 1.7;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .articles-empty {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: #999;
+            font-style: italic;
+            padding: 3rem 1rem;
+        }
+
+        .article-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(139, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.25);
+            border-color: rgba(212, 175, 55, 0.5);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
+            background: #f5f1e8;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .article-info {
+            padding: 1.4rem 1.5rem 1.6rem;
+        }
+
+        .article-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        .article-price {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--deep-red);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .article-edit-btn {
+            position: absolute;
+            top: 0.8rem;
+            right: 0.8rem;
+            background: rgba(26, 26, 26, 0.85);
+            color: var(--accent-gold);
+            border: 1px solid var(--primary-gold);
+            border-radius: 50px;
+            padding: 0.4rem 0.95rem;
+            font-size: 0.8rem;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .article-edit-btn:hover {
+            background: var(--primary-gold);
+            color: var(--dark-bg);
+        }
+
+        .admin-bar {
+            display: none;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2.5rem auto 0;
+            padding: 1rem 1.5rem;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px dashed var(--primary-gold);
+            border-radius: 12px;
+            max-width: 600px;
+            flex-wrap: wrap;
+        }
+
+        .admin-bar.active {
+            display: flex;
+        }
+
+        .admin-login-link {
+            display: block;
+            text-align: center;
+            margin-top: 3rem;
+            color: #aaa;
+            font-size: 0.85rem;
+            text-decoration: none;
+            cursor: pointer;
+            letter-spacing: 1px;
+            transition: color 0.2s ease;
+        }
+
+        .admin-login-link:hover {
+            color: var(--primary-gold);
+        }
+
+        /* ==================== MODALS ==================== */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            max-height: 92vh;
+            overflow-y: auto;
+            border-top: 4px solid var(--primary-gold);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 0.8rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: #999;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0.2rem 0.5rem;
+        }
+
+        .modal-close:hover {
+            color: var(--deep-red);
+        }
+
+        .modal-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .modal-content label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+
+        .modal-content input[type="text"],
+        .modal-content input[type="email"],
+        .modal-content input[type="password"],
+        .modal-content input[type="file"] {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 1.2rem;
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.95rem;
+            background: #fafafa;
+            transition: all 0.2s ease;
+        }
+
+        .modal-content input:focus {
+            outline: none;
+            border-color: var(--primary-gold);
+            background: white;
+        }
+
+        .preview-image {
+            width: 100%;
+            max-height: 220px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 1.2rem;
+            display: none;
+            background: #f5f1e8;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 0.8rem;
+            justify-content: flex-end;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary,
+        .btn-secondary,
+        .btn-danger {
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-gold), var(--accent-gold));
+            color: var(--dark-bg);
+        }
+
+        .btn-primary:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-primary:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 1px solid #888;
+            color: var(--text-dark);
+        }
+
+        .btn-secondary:hover {
+            background: #f5f1e8;
+        }
+
+        .btn-danger {
+            background: var(--deep-red);
+            color: white;
+            margin-right: auto;
+        }
+
+        .btn-danger:hover {
+            background: #6b0000;
+        }
+
+        .error-msg {
+            color: var(--deep-red);
+            font-size: 0.88rem;
+            margin-bottom: 1rem;
+            min-height: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .articles-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .modal-content {
+                padding: 1.8rem 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -807,6 +1105,7 @@
                 <li><a href="#categories">Catégories</a></li>
                 <li><a href="#experience">Expérience</a></li>
                 <li><a href="#gallery">Galerie</a></li>
+                <li><a href="#articles">Articles</a></li>
                 <li><a href="#location">Contact</a></li>
             </ul>
             <a href="#location" class="cta-header">Nous Visiter</a>
@@ -981,6 +1280,66 @@
         </div>
     </section>
 
+    <!-- ==================== ARTICLES SECTION ==================== -->
+    <section class="articles" id="articles">
+        <div class="container">
+            <h2 class="section-title">Articles à Découvrir</h2>
+            <p class="articles-intro">Un aperçu de notre sélection — venez découvrir bien plus en boutique.</p>
+
+            <div id="admin-bar" class="admin-bar">
+                <button id="add-article-btn" class="btn-primary">+ Ajouter un article</button>
+                <button id="logout-btn" class="btn-secondary">Se déconnecter</button>
+            </div>
+
+            <div id="articles-grid" class="articles-grid">
+                <p class="articles-empty">Chargement…</p>
+            </div>
+
+            <a id="admin-login-btn" class="admin-login-link">✦ Espace gérant</a>
+        </div>
+    </section>
+
+    <!-- ==================== LOGIN MODAL ==================== -->
+    <div id="login-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="login-title">
+        <div class="modal-content">
+            <button class="modal-close" data-close-modal aria-label="Fermer">×</button>
+            <h3 id="login-title">Espace gérant</h3>
+            <form id="login-form">
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" name="email" required autocomplete="email">
+                <label for="login-password">Mot de passe</label>
+                <input type="password" id="login-password" name="password" required autocomplete="current-password">
+                <div id="login-error" class="error-msg"></div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Se connecter</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==================== ARTICLE FORM MODAL ==================== -->
+    <div id="article-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="article-form-title">
+        <div class="modal-content">
+            <button class="modal-close" data-close-modal aria-label="Fermer">×</button>
+            <h3 id="article-form-title">Ajouter un article</h3>
+            <form id="article-form">
+                <label for="article-title-input">Titre</label>
+                <input type="text" id="article-title-input" required maxlength="80" placeholder="Ex: Théière en cuivre">
+                <label for="article-price-input">Prix</label>
+                <input type="text" id="article-price-input" required maxlength="20" placeholder="Ex: 24,90 €">
+                <label for="article-image-input">Image</label>
+                <input type="file" id="article-image-input" accept="image/*">
+                <img id="article-image-preview" class="preview-image" alt="Aperçu">
+                <div id="article-error" class="error-msg"></div>
+                <div class="form-actions">
+                    <button type="button" id="article-delete-btn" class="btn-danger" style="display:none;">Supprimer</button>
+                    <button type="button" class="btn-secondary" data-close-modal>Annuler</button>
+                    <button type="submit" id="article-submit" class="btn-primary">Enregistrer</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
     <!-- ==================== LOCATION SECTION ==================== -->
     <section class="location" id="location">
         <div class="container">
@@ -1030,6 +1389,7 @@
                     <li><a href="#categories">Nos Univers</a></li>
                     <li><a href="#experience">Expérience</a></li>
                     <li><a href="#gallery">Galerie</a></li>
+                    <li><a href="#articles">Articles</a></li>
                     <li><a href="#location">Contact</a></li>
                 </ul>
             </div>
@@ -1109,6 +1469,270 @@
             el.style.opacity = '0';
             observer.observe(el);
         });
+    </script>
+
+    <!-- ==================== FIREBASE — ARTICLES ADMIN ==================== -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+        import { getFirestore, collection, onSnapshot, addDoc, deleteDoc, doc, updateDoc, serverTimestamp, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+        // 👉 Remplacer ces valeurs par celles fournies par Firebase (voir commentaire en haut du fichier)
+        const firebaseConfig = {
+            apiKey: "AIzaSyBMfem5-Y2272v-AMGVfuja72dHgVWuJYA",
+            authDomain: "etoile-orient.firebaseapp.com",
+            projectId: "etoile-orient",
+            storageBucket: "etoile-orient.firebasestorage.app",
+            messagingSenderId: "83998844700",
+            appId: "1:83998844700:web:a014e0f091f3264bb03cd9"
+        };
+
+        const grid = document.getElementById('articles-grid');
+        const adminBar = document.getElementById('admin-bar');
+        const loginLink = document.getElementById('admin-login-btn');
+        const loginModal = document.getElementById('login-modal');
+        const loginForm = document.getElementById('login-form');
+        const loginError = document.getElementById('login-error');
+        const logoutBtn = document.getElementById('logout-btn');
+        const addBtn = document.getElementById('add-article-btn');
+        const articleModal = document.getElementById('article-modal');
+        const articleForm = document.getElementById('article-form');
+        const titleInput = document.getElementById('article-title-input');
+        const priceInput = document.getElementById('article-price-input');
+        const imageInput = document.getElementById('article-image-input');
+        const imagePreview = document.getElementById('article-image-preview');
+        const articleSubmit = document.getElementById('article-submit');
+        const articleFormTitle = document.getElementById('article-form-title');
+        const articleDeleteBtn = document.getElementById('article-delete-btn');
+        const articleError = document.getElementById('article-error');
+
+        let articles = [];
+        let isAuth = false;
+        let editingId = null;
+        let currentImage = null;
+        let db = null, auth = null;
+
+        const isConfigured = !firebaseConfig.apiKey.startsWith('REMPLIR');
+
+        function escapeHtml(s) {
+            return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+        }
+
+        function openModal(m) { m.classList.add('active'); }
+        function closeModal(m) { m.classList.remove('active'); }
+
+        function renderArticles() {
+            if (!articles.length) {
+                grid.innerHTML = '<p class="articles-empty">Aucun article pour le moment. Le gérant peut en ajouter via "Espace gérant" ci-dessous.</p>';
+                return;
+            }
+            grid.innerHTML = articles.map(a => `
+                <div class="article-card">
+                    <div class="article-image"><img src="${a.image}" alt="${escapeHtml(a.title)}" loading="lazy"></div>
+                    <div class="article-info">
+                        <h3>${escapeHtml(a.title)}</h3>
+                        <p class="article-price">${escapeHtml(a.price)}</p>
+                    </div>
+                    ${isAuth ? `<button class="article-edit-btn" data-id="${a.id}">✎ Modifier</button>` : ''}
+                </div>
+            `).join('');
+            if (isAuth) {
+                grid.querySelectorAll('.article-edit-btn').forEach(btn => {
+                    btn.addEventListener('click', () => openEditForm(btn.dataset.id));
+                });
+            }
+        }
+
+        function openEditForm(id) {
+            const a = articles.find(x => x.id === id);
+            if (!a) return;
+            editingId = id;
+            currentImage = a.image;
+            articleFormTitle.textContent = "Modifier l'article";
+            titleInput.value = a.title;
+            priceInput.value = a.price;
+            imageInput.value = '';
+            imagePreview.src = a.image;
+            imagePreview.style.display = 'block';
+            articleDeleteBtn.style.display = 'inline-block';
+            articleError.textContent = '';
+            openModal(articleModal);
+        }
+
+        function resetArticleForm() {
+            editingId = null;
+            currentImage = null;
+            articleForm.reset();
+            imagePreview.src = '';
+            imagePreview.style.display = 'none';
+            articleDeleteBtn.style.display = 'none';
+            articleError.textContent = '';
+            articleFormTitle.textContent = 'Ajouter un article';
+        }
+
+        function resizeImage(file, maxSize, quality) {
+            return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = e => {
+                    const img = new Image();
+                    img.onload = () => {
+                        let w = img.width, h = img.height;
+                        const scale = Math.min(1, maxSize / Math.max(w, h));
+                        w = Math.round(w * scale); h = Math.round(h * scale);
+                        const canvas = document.createElement('canvas');
+                        canvas.width = w; canvas.height = h;
+                        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+                        resolve(canvas.toDataURL('image/jpeg', quality));
+                    };
+                    img.onerror = () => reject(new Error('Image illisible'));
+                    img.src = e.target.result;
+                };
+                reader.onerror = () => reject(new Error('Lecture du fichier impossible'));
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // === Gestion modales (fermeture) ===
+        document.querySelectorAll('[data-close-modal]').forEach(el => {
+            el.addEventListener('click', () => {
+                closeModal(loginModal);
+                closeModal(articleModal);
+                resetArticleForm();
+                loginError.textContent = '';
+            });
+        });
+        [loginModal, articleModal].forEach(m => {
+            m.addEventListener('click', e => {
+                if (e.target === m) {
+                    closeModal(m);
+                    resetArticleForm();
+                    loginError.textContent = '';
+                }
+            });
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                closeModal(loginModal);
+                closeModal(articleModal);
+                resetArticleForm();
+            }
+        });
+
+        loginLink.addEventListener('click', () => {
+            if (!isConfigured) {
+                alert("Firebase n'est pas encore configuré. Voir les instructions dans le commentaire en haut du fichier index.html.");
+                return;
+            }
+            openModal(loginModal);
+        });
+
+        // === Image upload preview ===
+        imageInput.addEventListener('change', async e => {
+            const file = e.target.files[0];
+            if (!file) return;
+            articleError.textContent = '';
+            try {
+                currentImage = await resizeImage(file, 1000, 0.78);
+                imagePreview.src = currentImage;
+                imagePreview.style.display = 'block';
+            } catch (err) {
+                articleError.textContent = 'Image invalide : ' + err.message;
+            }
+        });
+
+        if (!isConfigured) {
+            grid.innerHTML = '<p class="articles-empty">⚙️ Section non configurée — voir les instructions Firebase en haut de index.html.</p>';
+        } else {
+            const app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+
+            // === Écoute temps-réel des articles ===
+            const q = query(collection(db, 'articles'), orderBy('createdAt', 'desc'));
+            onSnapshot(q, snap => {
+                articles = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+                renderArticles();
+            }, err => {
+                grid.innerHTML = `<p class="articles-empty">Erreur de chargement : ${escapeHtml(err.message)}</p>`;
+            });
+
+            // === État d'authentification ===
+            onAuthStateChanged(auth, user => {
+                isAuth = !!user;
+                adminBar.classList.toggle('active', isAuth);
+                loginLink.style.display = isAuth ? 'none' : 'block';
+                renderArticles();
+                if (isAuth) {
+                    closeModal(loginModal);
+                    loginForm.reset();
+                    loginError.textContent = '';
+                }
+            });
+
+            // === Connexion ===
+            loginForm.addEventListener('submit', async e => {
+                e.preventDefault();
+                loginError.textContent = '';
+                const email = document.getElementById('login-email').value;
+                const password = document.getElementById('login-password').value;
+                try {
+                    await signInWithEmailAndPassword(auth, email, password);
+                } catch (err) {
+                    loginError.textContent = 'Identifiants invalides.';
+                }
+            });
+
+            logoutBtn.addEventListener('click', () => signOut(auth));
+
+            // === Ajouter ===
+            addBtn.addEventListener('click', () => {
+                resetArticleForm();
+                openModal(articleModal);
+            });
+
+            // === Enregistrer (ajout ou modif) ===
+            articleForm.addEventListener('submit', async e => {
+                e.preventDefault();
+                articleError.textContent = '';
+                if (!currentImage) {
+                    articleError.textContent = 'Veuillez choisir une image.';
+                    return;
+                }
+                const data = {
+                    title: titleInput.value.trim(),
+                    price: priceInput.value.trim(),
+                    image: currentImage
+                };
+                articleSubmit.disabled = true;
+                try {
+                    if (editingId) {
+                        await updateDoc(doc(db, 'articles', editingId), data);
+                    } else {
+                        data.createdAt = serverTimestamp();
+                        await addDoc(collection(db, 'articles'), data);
+                    }
+                    resetArticleForm();
+                    closeModal(articleModal);
+                } catch (err) {
+                    articleError.textContent = 'Erreur : ' + err.message;
+                } finally {
+                    articleSubmit.disabled = false;
+                }
+            });
+
+            // === Supprimer ===
+            articleDeleteBtn.addEventListener('click', async () => {
+                if (!editingId) return;
+                if (!confirm('Supprimer cet article ?')) return;
+                try {
+                    await deleteDoc(doc(db, 'articles', editingId));
+                    resetArticleForm();
+                    closeModal(articleModal);
+                } catch (err) {
+                    articleError.textContent = 'Erreur : ' + err.message;
+                }
+            });
+        }
     </script>
 </body>
 </html>

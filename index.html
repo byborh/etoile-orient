@@ -1328,7 +1328,7 @@
                 <label for="article-price-input">Prix</label>
                 <input type="text" id="article-price-input" required maxlength="20" placeholder="Ex: 24,90 €">
                 <label for="article-image-input">Image</label>
-                <input type="file" id="article-image-input" accept="image/*">
+                <input type="file" id="article-image-input" accept="image/*,.heic,.heif">
                 <img id="article-image-preview" class="preview-image" alt="Aperçu">
                 <div id="article-error" class="error-msg"></div>
                 <div class="form-actions">
@@ -1570,26 +1570,56 @@
             articleFormTitle.textContent = 'Ajouter un article';
         }
 
-        function resizeImage(file, maxSize, quality) {
+        function loadScript(src) {
             return new Promise((resolve, reject) => {
+                if (document.querySelector(`script[data-src="${src}"]`)) { resolve(); return; }
+                const s = document.createElement('script');
+                s.src = src;
+                s.dataset.src = src;
+                s.onload = () => resolve();
+                s.onerror = () => reject(new Error('Téléchargement du convertisseur HEIC impossible'));
+                document.head.appendChild(s);
+            });
+        }
+
+        async function decodeImage(blob) {
+            if (typeof createImageBitmap === 'function') {
+                try {
+                    return await createImageBitmap(blob, { imageOrientation: 'from-image' });
+                } catch (_) { /* fallback below */ }
+            }
+            return await new Promise((resolve, reject) => {
                 const reader = new FileReader();
                 reader.onload = e => {
                     const img = new Image();
-                    img.onload = () => {
-                        let w = img.width, h = img.height;
-                        const scale = Math.min(1, maxSize / Math.max(w, h));
-                        w = Math.round(w * scale); h = Math.round(h * scale);
-                        const canvas = document.createElement('canvas');
-                        canvas.width = w; canvas.height = h;
-                        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-                        resolve(canvas.toDataURL('image/jpeg', quality));
-                    };
+                    img.onload = () => resolve(img);
                     img.onerror = () => reject(new Error('Image illisible'));
                     img.src = e.target.result;
                 };
                 reader.onerror = () => reject(new Error('Lecture du fichier impossible'));
-                reader.readAsDataURL(file);
+                reader.readAsDataURL(blob);
             });
+        }
+
+        async function resizeImage(file, maxSize, quality) {
+            let source = file;
+            const isHeic = /\.hei[cf]$/i.test(file.name) || /image\/hei[cf]/i.test(file.type);
+            if (isHeic) {
+                if (!window.heic2any) {
+                    await loadScript('https://cdn.jsdelivr.net/npm/heic2any@0.0.4/dist/heic2any.min.js');
+                }
+                const converted = await window.heic2any({ blob: file, toType: 'image/jpeg', quality: 0.9 });
+                source = Array.isArray(converted) ? converted[0] : converted;
+            }
+            const bitmap = await decodeImage(source);
+            let w = bitmap.width, h = bitmap.height;
+            const scale = Math.min(1, maxSize / Math.max(w, h));
+            w = Math.round(w * scale); h = Math.round(h * scale);
+            const canvas = document.createElement('canvas');
+            canvas.width = w; canvas.height = h;
+            canvas.getContext('2d').drawImage(bitmap, 0, 0, w, h);
+            if (bitmap.close) bitmap.close();
+            return canvas.toDataURL('image/jpeg', quality);
         }
 
         // === Gestion modales (fermeture) ===
@@ -1631,12 +1661,22 @@
             const file = e.target.files[0];
             if (!file) return;
             articleError.textContent = '';
+            articleError.style.color = '';
+            const isHeic = /\.hei[cf]$/i.test(file.name) || /image\/hei[cf]/i.test(file.type);
+            articleError.style.color = '#666';
+            articleError.textContent = isHeic ? 'Conversion de la photo iPhone…' : 'Traitement de l\'image…';
+            articleSubmit.disabled = true;
             try {
                 currentImage = await resizeImage(file, 1000, 0.78);
                 imagePreview.src = currentImage;
                 imagePreview.style.display = 'block';
+                articleError.textContent = '';
+                articleError.style.color = '';
             } catch (err) {
+                articleError.style.color = '';
                 articleError.textContent = 'Image invalide : ' + err.message;
+            } finally {
+                articleSubmit.disabled = false;
             }
         });
 
